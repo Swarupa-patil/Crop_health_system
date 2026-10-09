@@ -1,0 +1,71 @@
+
+[
+  {
+    "id": "R001",
+    "conditions": [
+      {"name": "crop", "value": "tomato"},
+      {"name": "brown_spots", "value": true}
+    ],
+    "conclusion": {
+      "name": "possible_leaf_spot_condition",
+      "value": true
+    }
+  },
+  {
+    "id": "R002",
+    "conditions": [
+      {"name": "crop", "value": "tomato"},
+      {"name": "brown_spots", "value": true},
+      {"name": "leaf_drying", "value": true}
+    ],
+    "conclusion": {
+      "name": "possible_early_blight",
+      "value": true
+    }
+  },
+  {
+    "id": "R003",
+    "conditions": [
+      {"name": "crop", "value": "potato"},
+      {"name": "brown_spots", "value": true},
+      {"name": "leaf_drying", "value": true}
+    ],
+    "conclusion": {
+      "name": "possible_late_blight",
+      "value": true
+    }
+  },
+  {
+    "id": "R004",
+    "conditions": [
+      {"name": "crop", "value": "chilli"},
+      {"name": "leaf_curling", "value": true}
+    ],
+    "conclusion": {
+      "name": "possible_chilli_leaf_curl",
+      "value": true
+    }
+  },
+  {
+    "id": "R005",
+    "conditions": [
+      {"name": "crop", "value": "brinjal"},
+      {"name": "rapid_wilting", "value": true}
+    ],
+    "conclusion": {
+      "name": "possible_bacterial_wilt",
+      "value": true
+    }
+  },
+  {
+    "id": "R006",
+    "conditions": [
+      {"name": "crop", "value": "cabbage"},
+      {"name": "dark_leaf_spots", "value": true}
+    ],
+    "conclusion": {
+      "name": "possible_alternaria_leaf_spot",
+      "value": true
+    }
+  }
+]

@@ -1,0 +1,591 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropCare | Intelligent Crop Health</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --green: #173f32;
+            --green-light: #e8f0e7;
+            --lime: #d7ed9c;
+            --cream: #faf9f4;
+            --text: #20342b;
+            --muted: #718078;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+        }
+
+        nav {
+            max-width: 1180px;
+            margin: auto;
+            padding: 25px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            font-size: 23px;
+            color: var(--green);
+            letter-spacing: -1px;
+        }
+
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: var(--green);
+            color: var(--lime);
+            display: grid;
+            place-items: center;
+            font-size: 23px;
+        }
+
+        .nav-tag {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--green);
+            background: var(--green-light);
+            padding: 9px 15px;
+            border-radius: 30px;
+        }
+
+        .hero {
+            max-width: 1180px;
+            margin: 24px auto 50px;
+            padding: 55px 28px 65px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: #477457;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .eyebrow span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #83a96b;
+        }
+
+        h1 {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(40px, 5vw, 65px);
+            line-height: 1.1;
+            letter-spacing: -3px;
+            color: var(--green);
+            max-width: 590px;
+        }
+
+        h1 em {
+            color: #75985b;
+            font-style: normal;
+        }
+
+        .hero-text {
+            color: var(--muted);
+            font-size: 16px;
+            max-width: 475px;
+            margin: 23px 0 27px;
+            line-height: 1.9;
+        }
+
+        .feature-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .feature {
+            background: white;
+            border: 1px solid #e9e9df;
+            border-radius: 30px;
+            padding: 10px 14px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .hero-art {
+            position: relative;
+            min-height: 390px;
+            border-radius: 32px;
+            overflow: hidden;
+            background: #dce9d4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-art img {
+            width: 100%;
+            height: 390px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .art-label {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.93);
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            padding: 17px 20px;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .art-icon {
+            background: var(--green-light);
+            width: 43px;
+            height: 43px;
+            border-radius: 13px;
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .art-label strong {
+            display: block;
+            font-size: 14px;
+        }
+
+        .art-label small {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .diagnosis-section {
+            background: #edf1e8;
+            padding: 75px 25px 85px;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 620px;
+            margin: 0 auto 35px;
+        }
+
+        .section-heading h2 {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(28px, 4vw, 40px);
+            letter-spacing: -1.5px;
+            color: var(--green);
+            line-height: 1.2;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 13px;
+        }
+
+        .form-card {
+            max-width: 760px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            border: 1px solid #e5e9df;
+            box-shadow: 0 18px 55px rgba(34, 63, 42, 0.07);
+        }
+
+        .form-top {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #edf0e9;
+            margin-bottom: 25px;
+        }
+
+        .step-number {
+            background: var(--green);
+            color: var(--lime);
+            width: 43px;
+            height: 43px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+        }
+
+        .form-top h3 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 19px;
+        }
+
+        .form-top p {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .field-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 9px;
+        }
+
+        select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #dfe5dc;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            background: #fcfcf9;
+            color: var(--text);
+            outline: none;
+        }
+
+        select:focus {
+            border-color: #638d68;
+            box-shadow: 0 0 0 3px #e8f0e7;
+        }
+
+        .symptom-area {
+            margin-top: 26px;
+        }
+
+        .symptom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 13px;
+            margin-top: 13px;
+        }
+
+        .symptom-option {
+            border: 1px solid #e1e7dd;
+            border-radius: 13px;
+            padding: 16px;
+            display: flex;
+            gap: 11px;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.2s ease;
+            font-size: 13px;
+        }
+
+        .symptom-option:hover {
+            background: #f5f8f1;
+            border-color: #8eaf83;
+        }
+
+        .symptom-option:has(input:checked) {
+            background: #edf4e8;
+            border-color: #789d6e;
+        }
+
+        .symptom-option input {
+            accent-color: var(--green);
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .hint {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            margin-top: 28px;
+            padding: 16px;
+            border: none;
+            border-radius: 13px;
+            background: var(--green);
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background: #285c45;
+            transform: translateY(-1px);
+        }
+
+        .result {
+            margin-top: 25px;
+            border-radius: 15px;
+            padding: 20px;
+            background: #edf4e8;
+            border: 1px solid #d4e4ca;
+        }
+
+        .result h3 {
+            color: var(--green);
+            font-family: 'Manrope', sans-serif;
+            margin-bottom: 8px;
+        }
+
+        .result p {
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .notice {
+            font-size: 11px;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 18px;
+        }
+
+        footer {
+            max-width: 1180px;
+            margin: auto;
+            padding: 25px 28px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        @media (max-width: 800px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 25px;
+                margin-bottom: 25px;
+                gap: 30px;
+            }
+
+            .hero-art,
+            .hero-art img {
+                min-height: 280px;
+                height: 280px;
+            }
+
+            .form-card {
+                padding: 24px 19px;
+            }
+
+            .diagnosis-section {
+                padding: 55px 16px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .symptom-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-tag {
+                font-size: 10px;
+                padding: 8px 10px;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+        }
+    </style>
+</head>
+<script>
+    const result = document.getElementById("diagnosis-result");
+    if (result) {
+        result.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+</script>
+
+<body>
+    <nav>
+        <div class="brand">
+            <div class="brand-icon">✳</div>
+            CropCare
+        </div>
+        <div class="nav-tag">AI-INSPIRED · RULE-BASED EXPERT SYSTEM</div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div>
+                <div class="eyebrow"><span></span> Smarter crop health decisions</div>
+                <h1>Healthy crops.<br>Better <em>harvests.</em></h1>
+                <p class="hero-text">
+                    Explore a smarter way to assess vegetable crop symptoms.
+                    CropCare uses a knowledge base and logical reasoning
+                    to identify possible plant health problems.
+                </p>
+                <div class="feature-row">
+                    <div class="feature">🌱 5 vegetables</div>
+                    <div class="feature">🧠 Rule-based reasoning</div>
+                    <div class="feature">🔎 Explainable results</div>
+                </div>
+            </div>
+
+            <div class="hero-art">
+                <img
+                    src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85"
+                    alt="Green agricultural fields"
+                >
+                <div class="art-label">
+                    <div class="art-icon">🌿</div>
+                    <div>
+                        <strong>Understand your crop</strong>
+                        <small>Observe symptoms. Explore possible causes.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="diagnosis-section" id="diagnose">
+            <div class="section-heading">
+                <div class="eyebrow"><span></span> Crop health assessment</div>
+                <h2>Let's understand your plant.</h2>
+                <p>Select your vegetable and report the symptoms you can observe.</p>
+            </div>
+
+            <div class="form-card">
+                <div class="form-top">
+                    <div class="step-number">01</div>
+                    <div>
+                        <h3>Crop information</h3>
+                        <p>Start by identifying your vegetable crop.</p>
+                    </div>
+                </div>
+
+                <form method="POST" action="/diagnose#diagnosis-result">
+                    <label class="field-label" for="crop">Which vegetable are you growing?</label>
+                    <select id="crop" name="crop" required>
+                        <option value="">Select a vegetable</option>
+                        <option value="tomato" {% if selected_crop == 'tomato' %}selected{% endif %}>🍅 Tomato</option>
+<option value="potato" {% if selected_crop == 'potato' %}selected{% endif %}>🥔 Potato</option>
+<option value="chilli" {% if selected_crop == 'chilli' %}selected{% endif %}>🌶️ Chilli</option>
+<option value="brinjal" {% if selected_crop == 'brinjal' %}selected{% endif %}>🍆 Brinjal</option>
+<option value="cabbage" {% if selected_crop == 'cabbage' %}selected{% endif %}>🥬 Cabbage</option>
+                    </select>
+
+                    <div class="symptom-area">
+                        <label class="field-label">Which symptoms are visible?</label>
+                        <div id="symptom-grid" class="symptom-grid">
+                            <p class="hint">Choose a vegetable to see its symptom questions.</p>
+                        </div>
+                        <p class="hint">Select every symptom you have observed.</p>
+                    </div>
+
+                    <button class="submit-btn" type="submit">
+                        Assess Crop Health &nbsp; →
+                    </button>
+                </form>
+
+                {% if diagnosis %}
+                <div class="result" id="diagnosis-result">
+                    <h3>Assessment result</h3>
+                    <p><strong>{{ diagnosis }}</strong></p>
+                    <p>{{ explanation }}</p>
+                    <p><strong>Reasoning rules:</strong> {{ rules_used }}</p>
+                    <p>Preliminary result only. Similar symptoms can have different causes. Consult an agricultural expert for confirmation.</p>
+                </div>
+                {% endif %}
+
+                <p class="notice">
+                    This tool provides preliminary rule-based assessments, not confirmed agricultural diagnoses.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>© 2026 CropCare · Academic expert system project</div>
+        <div>Forward chaining + Backward chaining</div>
+    </footer>
+
+    <script>
+        const questions = {
+            tomato: [
+                ["brown_spots", "Brown spots on leaves"],
+                ["leaf_drying", "Leaves are drying"]
+            ],
+            potato: [
+                ["brown_spots", "Brown spots on leaves"],
+                ["leaf_drying", "Leaves are drying"]
+            ],
+            chilli: [
+                ["leaf_curling", "Leaves are curling"]
+            ],
+            brinjal: [
+                ["rapid_wilting", "Plant is wilting rapidly"]
+            ],
+            cabbage: [
+                ["dark_leaf_spots", "Dark spots on leaves"]
+            ]
+        };
+
+        const cropSelect = document.getElementById("crop");
+        const symptomGrid = document.getElementById("symptom-grid");
+
+        cropSelect.addEventListener("change", function () {
+            symptomGrid.innerHTML = "";
+
+            const selected = questions[this.value];
+
+            if (!selected) {
+                symptomGrid.innerHTML =
+                    '<p class="hint">Choose a vegetable to see its symptom questions.</p>';
+                return;
+            }
+
+            selected.forEach(([name, label]) => {
+                const item = document.createElement("label");
+                item.className = "symptom-option";
+
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.name = "symptoms";
+                checkbox.value = name;
+
+                const text = document.createElement("span");
+                text.textContent = label;
+
+                item.appendChild(checkbox);
+                item.appendChild(text);
+                symptomGrid.appendChild(item);
+            });
+        });
+    </script>
+</body>
+</html>
